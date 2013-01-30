@@ -161,6 +161,9 @@ lcb_ssize_t lcb_luv_sendv(struct lcb_io_opt_st *iops,
         if (iret > 0) {
             nw += iret;
         } else {
+            if (iret < 0) {
+                nw = -1;
+            }
             break;
         }
     }
